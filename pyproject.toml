@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voicevox-sentence-stream"
+version = "0.1.0"
+description = "Dependency-free sentence-by-sentence VOICEVOX synthesis from incremental text"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "yukincom"}]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/yukincom/voicevox-sentence-stream"
+
+[project.scripts]
+voicevox-sentence-stream = "voicevox_sentence_stream.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

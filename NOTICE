@@ -1,0 +1,17 @@
+voicevox-sentence-stream
+Copyright (c) 2026 yukincom
+
+The sentence-streaming approach and Japanese immediate sentence boundaries
+were developed while modifying Hermes Agent's tools/tts_streaming.py.
+This standalone implementation adapts that approach with a lossless bounded
+splitter, a standalone standard-library VOICEVOX client, explicit WAV/PCM
+metadata, cancellation, tests, and examples by yukincom.
+
+Hermes Agent: https://github.com/NousResearch/hermes-agent
+Source: https://github.com/NousResearch/hermes-agent/blob/main/tools/tts_streaming.py
+Copyright (c) 2025 Nous Research
+License: MIT (retained in LICENSE)
+
+VOICEVOX Engine: https://github.com/VOICEVOX/voicevox_engine
+The engine and voice data are not bundled or licensed by this repository.
+Example voice credit: VOICEVOX:ずんだもん
