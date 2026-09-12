@@ -3,7 +3,8 @@
 The reusable library is independent of Hermes. For the actual Desktop
 integration shown in the demo, use the public
 [Hermes feature branch](https://github.com/yukincom/hermes-agent/tree/codex/voicevox-sentence-stream).
-It contains the integration directly; installing this library into Hermes is
+[Upstream PR #109281](https://github.com/NousResearch/hermes-agent/pull/109281)
+contains the proposed changes. The feature branch contains the integration directly; installing this library into Hermes is
 not required. The branch is a community preview, pending upstream review.
 
 ## macOS / Linux source setup

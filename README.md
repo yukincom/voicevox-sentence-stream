@@ -16,6 +16,10 @@ Want the Hermes Desktop integration from the demo? See the
 [Hermes preview setup](examples/hermes.md). Other applications can use the
 small library below directly.
 
+[Watch the Japanese voice demo on X](https://x.com/yukin_co/status/2098814603065282636)
+— recorded in the original local Hermes implementation; timings depend on
+the model, engine and hardware. Voice: **VOICEVOX:ずんだもん**.
+
 ## Install
 
 Requires Python 3.10+ and an already running
