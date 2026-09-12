@@ -12,6 +12,10 @@ WAV before it is yielded. It is not incremental waveform generation inside the
 engine. First-audio latency depends on your LLM, punctuation, engine and hardware;
 the package does not guarantee a fixed latency.
 
+Want the Hermes Desktop integration from the demo? See the
+[Hermes preview setup](examples/hermes.md). Other applications can use the
+small library below directly.
+
 ## Install
 
 Requires Python 3.10+ and an already running
