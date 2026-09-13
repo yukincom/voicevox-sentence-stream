@@ -48,6 +48,48 @@ playback and remaining text, while a running engine request may still finish.
 For Windows, use the upstream Desktop development instructions and set
 `HERMES_HOME` using your shell's syntax.
 
+## Updating an existing preview
+
+The preview's Desktop playback fix prevents history formatting or merged message
+rows from interrupting a reply or making it appear unread again. It also prevents
+manual read-aloud completion from triggering an automatic replay. These are
+Hermes playback-state issues, not VOICEVOX Engine or sentence-splitter changes;
+updating this Python library alone will not apply the fix. Stop and new-input
+interruptions remain available.
+
+Quit the preview, then check your existing Hermes preview checkout:
+
+```sh
+cd hermes-voicevox
+git branch --show-current
+git status --short
+```
+
+Continue only if the branch is `codex/voicevox-sentence-stream` and the working
+tree is clean. If you have local changes or use a different branch, keep them and
+review how to integrate the update first. Do not overwrite your configuration.
+
+```sh
+git pull --ff-only origin codex/voicevox-sentence-stream
+```
+
+If the pull cannot fast-forward, stop and review the branch differences; do not
+force the update. After a successful update, restart with the same `HERMES_HOME`
+as before (this uses the setup example's home):
+
+```sh
+HERMES_HOME="$HOME/.hermes-voicevox-demo" npm run dev --workspace apps/desktop
+```
+
+No model, engine or configuration change is required for this fix. A packaged
+app must be rebuilt from the updated source using the
+[Desktop development guide](https://github.com/yukincom/hermes-agent/blob/codex/voicevox-sentence-stream/apps/desktop/README.md);
+restarting an old build alone does not include source updates.
+
+After restarting, try a longer reply with the read-aloud button: it should finish
+once without stopping at a history refresh or restarting by itself. The fix is
+in the community preview; upstream availability depends on PR #109281 being merged.
+
 The source branch has integration tests and CI, but the demo recording was made
 on the original local implementation before the latest upstream port. Model,
 engine, hardware and sentence length affect latency. No fixed speed is promised.

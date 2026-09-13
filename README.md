@@ -16,6 +16,11 @@ Want the Hermes Desktop integration from the demo? See the
 [Hermes preview setup](examples/hermes.md). Other applications can use the
 small library below directly.
 
+Already using the Hermes preview? See the
+[update and restart instructions](examples/hermes.md#updating-an-existing-preview)
+for the Desktop fix for interrupted or unexpectedly repeated read-aloud.
+This is a Hermes playback-state fix, not a change to this library or VOICEVOX Engine.
+
 [Watch the Japanese voice demo on X](https://x.com/yukin_co/status/2098814603065282636)
 — recorded in the original local Hermes implementation; timings depend on
 the model, engine and hardware. Voice: **VOICEVOX:ずんだもん**.
