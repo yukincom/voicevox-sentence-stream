@@ -34,8 +34,7 @@ def transcribe_audio(input_path: str | Path, *, model: str | Path, vad_model: st
                      vad_min_silence_ms: int | None = None, vad_pad_ms: int | None = None) -> str:
     """Return all interval transcripts joined with newlines, or empty for no speech.
 
-    The caller supplies an audio file; this does not record, submit prompts,
-    correct wording, deduplicate actual repetitions, or save application state.
+    The caller supplies an audio file. Actual spoken repetitions are preserved.
     VAD settings left unspecified use whisper.cpp's own defaults. Failed
     conversion, detection or recognition raises; no partial result is returned.
     Temporary audio is removed on success and failure. The input is never edited.

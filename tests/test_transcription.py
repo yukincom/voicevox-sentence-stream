@@ -1,4 +1,4 @@
-"""No microphone, model downloads, personal state or native tools in unit tests."""
+"""Unit tests use mocks instead of native tools and models."""
 
 import array
 import contextlib

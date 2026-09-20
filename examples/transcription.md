@@ -65,8 +65,7 @@ No speech is a successful **empty file**, not an error. A conversion, VAD or
 recognition failure exits nonzero without publishing a partial transcript. An
 existing `transcript.txt` is never overwritten; use a fresh output directory for
 each recording. The source audio is unchanged, and temporary audio/segment files
-are removed on success and failure. This utility never opens a microphone, sends
-a chat message, stores personal voice-analysis state or changes key bindings.
+are removed on success and failure.
 
 VAD options are optional; omitted values use whisper.cpp's native defaults:
 
@@ -75,8 +74,7 @@ VAD options are optional; omitted values use whisper.cpp's native defaults:
 --vad-threshold 0.5 --vad-min-speech-ms 250 --vad-min-silence-ms 500 --vad-pad-ms 200
 ```
 
-Those explicit settings were used for the pause-heavy Japanese regression case;
-they are not imposed as new defaults. Tune them against your own microphone and
+Tune these settings against your own microphone and
 keep genuinely spoken short phrases in your evaluation.
 
 ## Python API
@@ -125,12 +123,11 @@ stt:
         --vad-library /path/to/libwhisper.dylib
 ```
 
-Use the Python environment where this package is installed. All `/path/to/`
-entries are placeholders, not user-specific defaults. Hermes substitutes the
+Use the Python environment where this package is installed. Replace `/path/to/`
+entries with your installed executable and model paths. Hermes substitutes the
 three `{...}` placeholders; retain them. Check the provider's timeout against
 your longest recording and number of intervals. This shared STT provider serves
-both dictation and voice conversation; it does not add a dictation-only LLM
-correction stage or change the application's recording controls.
+both dictation and voice conversation.
 
 ## 日本語
 
@@ -139,5 +136,5 @@ correction stage or change the application's recording controls.
 発話区間を元の順番で個別に認識します。本当に二度言った言葉は二度のまま残します。
 
 Python以外にFFmpeg、whisper.cpp 1.8.3、Whisperモデル、Sileroモデルが必要です。
-パスはすべて利用者が指定できます。個人用の分析処理・設定ファイル・キー対応は
-含みません。読み上げ機能だけを使う場合、これらSTT用の追加準備は不要です。
+パスはすべて利用者が指定できます。
+読み上げ機能だけを使う場合、これらSTT用の追加準備は不要です。

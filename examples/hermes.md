@@ -101,5 +101,4 @@ Demo voice credit: **VOICEVOX:ずんだもん**.
 For repeated or missing text around pauses in longer recordings, see the separate
 [segmented Whisper STT setup](transcription.md#hermes-command-provider-example).
 This requires installing the optional command utility and configuring the STT
-provider; updating the playback preview alone does not enable it. No F1 mapping
-or other keyboard customization is included.
+provider; updating the playback preview alone does not enable it.
