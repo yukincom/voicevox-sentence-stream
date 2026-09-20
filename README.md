@@ -21,6 +21,11 @@ Already using the Hermes preview? See the
 for the Desktop fix for interrupted or unexpectedly repeated read-aloud.
 This is a Hermes playback-state fix, not a change to this library or VOICEVOX Engine.
 
+For microphone transcription that repeats or skips text around pauses, this
+repository also provides an **optional, separate** [segmented Whisper STT tool](examples/transcription.md).
+It uses existing FFmpeg/whisper.cpp installations and models; it does not change
+VOICEVOX synthesis or require Hermes.
+
 [Watch the Japanese voice demo on X](https://x.com/yukin_co/status/2098814603065282636)
 — recorded in the original local Hermes implementation; timings depend on
 the model, engine and hardware. Voice: **VOICEVOX:ずんだもん**.
@@ -135,13 +140,17 @@ LLMの出力を文字列の差分として `iter_audio()` に渡すだけで、�
 VOICEVOXの音声を受け取れます。「うん。」など短い相づちもすぐ合成します。
 全文の完成を待ちません。VOICEVOXエンジン自体は事前に別途起動してください。
 
-標準の接続先は `http://127.0.0.1:50021`、話者はずんだもん・ノーマル
-（speaker=3）です。話者や接続先はアプリごとに指定できます。
+話者や接続先はアプリごとに指定できます。
 Hermes以外のチャット、ゲーム、ロボットにも組み込めます。録音・再生・割り込みは
 利用側のアプリが担当します。長文は分割し、切り捨てません。
 
 音声波形そのものを生成途中から受信する方式ではなく、**文ごとに完成した音声を
-順に受け取る方式**です。デモの速度はモデルや環境によって変わります。
+順に受け取る方式**です。速度はモデルや環境によって変わります。
+
+文字起こしで、間を空けると文章が繰り返されたり抜けたりする問題向けに、
+[発話区間ごとに認識する追加ツール](examples/transcription.md)も用意しています。
+読み上げとは独立した機能で、モデル・実行ファイルの場所を指定して使えます。
+個人用設定、音声分析、キー割り当ては含みません。
 
 ## Tests
 
@@ -153,6 +162,8 @@ python -m unittest discover -s tests -v
 Tests use a loopback fake HTTP server; they do not contact VOICEVOX or load voice
 models. They verify request fields, PCM format, early yield, CLI output before
 stdin EOF, long-text preservation, cancellation and error propagation.
+STT tests mock the native tools and cover interval ordering, preserved repetitions,
+no-speech output, failure cleanup, configuration and the command-line contract.
 
 ## License and voice credits
 

@@ -15,3 +15,10 @@ License: MIT (retained in LICENSE)
 VOICEVOX Engine: https://github.com/VOICEVOX/voicevox_engine
 The engine and voice data are not bundled or licensed by this repository.
 Example voice credit: VOICEVOX:ずんだもん
+
+The optional segmented STT utility and tests are by yukincom. Its ctypes
+declarations follow whisper.cpp 1.8.3's public C API:
+https://github.com/ggml-org/whisper.cpp/blob/v1.8.3/include/whisper.h
+whisper.cpp is MIT licensed; copyright (c) 2023-2026 The ggml authors.
+FFmpeg, whisper.cpp binaries, Whisper models and Silero models are not bundled.
+Their respective licenses and model terms apply separately.
